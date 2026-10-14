@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="570" viewBox="0 0 900 570">
+<defs><marker id="head" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#2f5e9e"/></marker></defs>
+<rect width="900" height="570" fill="#f6f5f1"/>
+<text x="24" y="36" font-family="Avenir Next, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif" font-size="16" font-weight="400" fill="#5d5e61" text-anchor="start">The living room from above, in metres the 3D model measured</text>
+<polygon points="243.3,356.5 245.8,231.4 205.3,230.6 202.9,355.7" fill="#e4e1d8"/>
+<text x="224.31229235880392" y="298.4950166112957" font-family="Avenir Next, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#5d5e61" text-anchor="middle">bookshelf</text>
+<polygon points="404.5,205.0 588.5,201.5 586.6,105.0 402.6,108.5" fill="#e4e1d8"/>
+<polygon points="523.4,326.6 526.8,179.0 454.3,177.3 450.9,325.0" fill="#e4e1d8"/>
+<text x="488.8571428571429" y="256.92691029900334" font-family="Avenir Next, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#5d5e61" text-anchor="middle">coffee table</text>
+<polygon points="572.9,178.7 666.7,171.2 660.9,100.0 567.1,107.6" fill="#e4e1d8"/>
+<polygon points="627.0,156.4 643.7,118.9 616.0,106.7 599.4,144.1" fill="#e4e1d8"/>
+<polygon points="351.7,358.4 407.1,277.1 326.4,222.2 271.1,303.7" fill="none" stroke="#2f5e9e" stroke-width="2.5" stroke-dasharray="6 5"/>
+<polygon points="672.2,389.8 697.1,294.7 609.5,271.7 584.5,366.9" fill="#2f5e9e" fill-opacity="0.18" stroke="#2f5e9e" stroke-width="2.5"/>
+<line x1="339.1" y1="290.3" x2="640.9" y2="330.8" stroke="#2f5e9e" stroke-width="2" marker-end="url(#head)"/>
+<text x="640.8970099667773" y="326.7707641196013" font-family="Avenir Next, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#2f5e9e" text-anchor="middle">armchair</text>
+<polygon points="618.5,440.0 659.4,431.8 650.8,388.8 609.9,397.1" fill="none" stroke="#2f5e9e" stroke-width="2.5" stroke-dasharray="6 5"/>
+<polygon points="306.7,407.9 346.2,384.2 323.1,345.7 283.5,369.4" fill="#2f5e9e" fill-opacity="0.18" stroke="#2f5e9e" stroke-width="2.5"/>
+<line x1="634.7" y1="414.4" x2="314.9" y2="376.7" stroke="#2f5e9e" stroke-width="2" marker-end="url(#head)"/>
+<text x="314.9036544850498" y="372.74418604651163" font-family="Avenir Next, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#2f5e9e" text-anchor="middle">stool</text>
+<polygon points="307.3,188.8 309.6,129.6 245.1,127.1 243.0,186.4" fill="none" stroke="#c8372d" stroke-width="2.5" stroke-dasharray="6 5"/>
+<text x="276.2724252491694" y="153.9468438538206" font-family="Avenir Next, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#c8372d" text-anchor="middle">potted plant</text>
+<polygon points="514.6,404.4 560.4,387.8 539.8,330.8 494.1,347.3" fill="#2e7d4f" fill-opacity="0.18" stroke="#2e7d4f" stroke-width="2.5"/>
+<text x="527.1495016611295" y="363.59468438538204" font-family="Avenir Next, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#2e7d4f" text-anchor="middle">cardboard box</text>
+<text x="24" y="490" font-family="Avenir Next, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif" font-size="17" fill="#1b1c1e">The <tspan font-weight="600" fill="#2f5e9e">armchair</tspan> moved <tspan font-weight="600" fill="#2f5e9e">2.7 m</tspan> from <tspan font-weight="600" fill="#2f5e9e">between the bookshelf and the coffee table</tspan></text>
+<text x="24" y="518" font-family="Avenir Next, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif" font-size="17" font-weight="400" fill="#1b1c1e" text-anchor="start">to the other side of the coffee table and turned about 165° clockwise.</text>
+<text x="24" y="552" font-family="Avenir Next, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif" font-size="14" font-weight="400" fill="#5d5e61" text-anchor="start">Dashed: where it was. Filled: where it is now. Grey: furniture that stayed, labelled where a sentence cites it.</text>
+</svg>

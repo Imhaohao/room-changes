@@ -4,6 +4,12 @@ Film a room, rearrange it, film it again. This tool turns the two phone videos i
 
 ![The viewer: the shared point cloud with the moved armchair and stool, the removed plant and the new cardboard box boxed in their type colours, the basket on the coffee table marked as not counted, and the change list with before and after crops](docs/viewer.jpg)
 
+All ten example rooms are already computed, so one command opens them in the viewer. Running it on your own two videos takes one more command and one number, the height you held the phone at ([Run it](#run-it)).
+
+```bash
+cd viewer && npm install && npm run dev
+```
+
 ## Benchmarks
 
 | | First run on held-out rooms | Current detector, all rooms |
@@ -12,6 +18,11 @@ Film a room, rearrange it, film it again. This tool turns the two phone videos i
 | False alarms | 4 of 30 reports | 1 of 35 reports |
 | Precision, recall, F1 (per object) | 77%, 70%, 0.73 | 94%, 75%, 0.84 |
 | Camera path error | 1.5 to 2.9 cm | 1.8 to 3.5 cm |
+| Box centre error on the floor | | 5 to 12 cm |
+| Box bottom error | | Under 1.6 cm in 7 of 8 rooms |
+| Distance moved, error | | 1 to 7 cm in 7 of 8 rooms |
+| Names exactly right, right kind of thing | | 18 of 33, 26 of 33 |
+| Cited furniture that really stands there | | 45 of 46 pieces; the one ghost is never cited |
 | Time per pair | | 90 to 240 s, median 105 s, Apple M5 Pro laptop |
 
 The held-out column is the honest number. Each of those six rooms was rendered after the detector was frozen and scored exactly once, and that first score is saved unedited in [`results/held-out`](results/held-out).
@@ -77,6 +88,39 @@ A region counts only if 85% of the sightlines into it saw empty space, and it ha
 
 [`pipeline.py:run`](standardphysics_changes/pipeline.py) calls them in order.
 
+### One change, from pixels to words
+
+Every word that places a change comes from the same 3D boxes the viewer draws. The plan below is drawn straight from the living room's `scene.json`, with no hand placement.
+
+![Top-down plan of the living room from scene.json. The armchair's dashed old box sits between the bookshelf and the coffee table, an arrow runs 2.7 m to its filled new box past the coffee table, the stool moves the other way, the potted plant's box is dashed red and the cardboard box is filled green](docs/plan.svg)
+
+The terminal prints the same sentences:
+
+```text
+4 things changed between the videos: the armchair moved 2.7 m, the stool moved 2.9 m, the potted plant was removed and a cardboard box appeared.
+  c1  moved    The armchair moved 2.7 m from between the bookshelf and the coffee table to the other side of the coffee table and turned about 165° clockwise. (about 85 cm by 85 cm and 95 cm tall)
+  c2  moved    The stool moved 2.9 m from near the coffee table to beside the bookshelf. (about 40 cm by 40 cm and 45 cm tall)
+  c3  removed  The pink terracotta pot with green leaves beside the bookshelf is gone. (about 55 cm by 50 cm and 1.2 m tall)
+  c4  added    A brown cardboard box appeared beside the coffee table. (about 55 cm by 45 cm and 35 cm tall)
+```
+
+And `scene.json` keeps the evidence behind each sentence (trimmed):
+
+```json
+{
+  "id": "c1", "type": "moved", "name": "armchair",
+  "size_text": "about 85 cm by 85 cm and 95 cm tall",
+  "evidence": {
+    "old_spot": { "empty_in": 32, "of": 32, "video": "after" },
+    "new_spot": { "empty_in": 28, "of": 32, "video": "before" }
+  },
+  "before": { "box": { "center": [0.628, 2.202, 0.484], "yaw_deg": 55.8 }, "where": "between the bookshelf and the coffee table" },
+  "after":  { "box": { "center": [3.3, 1.844, 0.485],  "yaw_deg": 75.3 } }
+}
+```
+
+The truth was 2.67 m and a 160° turn. The scorer also checks that every piece of furniture a sentence can cite stands where a real unchanged object stands, so a sentence can't place a change beside a ghost.
+
 ## 4. What it found
 
 Every change the current detector reports across the eight rendered rooms, framed blue for moved, red for removed and green for added:
@@ -93,7 +137,20 @@ Every change the current detector reports across the eight rendered rooms, frame
 
 The rooms are rendered in [Blender](https://www.blender.org) from CC0 [Poly Haven](https://polyhaven.com) models by [`render_example_room.py`](scripts/render_example_room.py), with phone-like shake, rolling shutter, motion blur, grain and compression. Inputs and answer keys are in [`examples/`](examples).
 
-## 5. Problems we hit
+## 5. Why it is built this way
+
+| Choice | Instead of | Because | What it costs |
+|---|---|---|---|
+| One 3D model from both videos at once | Two models aligned afterwards | The furniture that stayed ties the walks together, so there is no alignment step to fail | Two walks of a large space can still drift apart, as the library pair did |
+| Testing sightlines | Subtracting two point clouds | A new viewpoint or a hidden corner never turns into a change, and blind spots are shown instead of guessed | A change the other video never pointed at goes unreported |
+| Pretrained models, nothing trained | Training a change detector | Any room works in about two minutes with no labelled data | It inherits their mistakes, mostly in names |
+| Sentences built from boxes | Asking the vision model to describe the room | A sentence can't put an object somewhere the 3D model doesn't | The wording stays plain |
+| "An object" when the two views disagree | Trusting one view's name | A vague name misleads less than a confident wrong one | 15 of 33 names are not exact |
+| Phone height for scale | A marker or a tape measure in the room | Everyone knows roughly how high they hold a phone | A few percent of scale error is left |
+| A 10 cm minimum size | Keeping every region | Each false alarm it removed in the living room was a sliver along a silhouette | A broom or a picture frame is missed |
+| Local models on Apple silicon | A cloud vision API | Free, and no footage leaves the machine | Names need a Mac; `--namer none` runs anywhere |
+
+## 6. Problems we hit
 
 | Problem | Fix | Cost |
 |---|---|---|
@@ -145,7 +202,7 @@ Four of the five stated turns are within 10° of the truth. The studio ottoman's
 
 </details>
 
-## 6. Future
+## 7. Future
 
 - Film a real pair with staged changes and tape-measured truth. Only the rendered rooms have exact answers today.
 - Check that the two walks line up before trusting the comparison; that drift caused the library pair's false alarms.
@@ -194,7 +251,9 @@ Reproduce an example and score it against its answer key:
 
 Walk slowly at chest height for 15 to 30 seconds with the floor in frame, and take a different path the second time over the same area. Changes under about 10 cm across are dropped.
 
-Each run writes `scene.json` (changes, boxes, sentences, furniture, coverage, cameras), `cloud.bin` (both videos' points), `pictures/` (crops), and `evaluation.json` when scored.
+Each run writes `scene.json` (changes, boxes, sentences, furniture, coverage, cameras), `cloud.bin` (both videos' points), `pictures/` (crops), and `evaluation.json` when scored. Every example in [`examples/`](examples) has its input videos and answer key, and its output sits in [`viewer/public/changes/`](viewer/public/changes).
+
+All 126 Python tests and 9 viewer tests pass. The Python tests need only numpy, scipy and Pillow, and they re-score every checked-in example.
 
 ```bash
 .venv/bin/python -m pytest tests
