@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #f6f5f1;
+  --color-sheet: #fcfbf8;
+  --color-ink: #1b1c1e;
+  --color-ink-muted: #5d5e61;
+  --color-ink-faint: #8a8a88;
+  --color-accent: #2f5e9e;
+  --color-problem: #c8372d;
+  --color-pass: #2e7d4f;
+  --color-attention: #9a6200;
+
+  --color-moved: var(--color-accent);
+  --color-added: var(--color-pass);
+  --color-removed: var(--color-problem);
+  --color-unseen: var(--color-attention);
+
+  --font-sans: var(--font-karla), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-libre-franklin), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-atkinson-mono), ui-monospace, monospace;
+
+  --shadow-float: 0 1px 2px rgb(27 28 30 / 0.12), 0 4px 16px rgb(27 28 30 / 0.08);
+}
+
+@layer base {
+  html {
+    background: var(--color-paper);
+    color: var(--color-ink);
+  }
+
+  body {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .pressable {
+    transition-property: color, background-color, box-shadow, opacity, scale;
+    transition-duration: 150ms;
+    transition-timing-function: ease-out;
+  }
+
+  .pressable:active:not(:disabled, [aria-disabled="true"]) {
+    scale: 0.96;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .pressable:active {
+      scale: none !important;
+    }
+  }
+
+  .change-tone-moved {
+    --change: var(--color-moved);
+  }
+
+  .change-tone-added {
+    --change: var(--color-added);
+  }
+
+  .change-tone-removed {
+    --change: var(--color-removed);
+  }
+
+  .change-tone-unchecked {
+    --change: var(--color-unseen);
+  }
+
+  .change-tone {
+    color: var(--change);
+  }
+
+  [aria-pressed="true"] .change-tone {
+    color: inherit;
+  }
+
+  .measurement {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+}

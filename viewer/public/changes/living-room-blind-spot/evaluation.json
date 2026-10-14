@@ -1,0 +1,55 @@
+{
+ "detector": "bf484abba956",
+ "camera_alignment": {
+  "scale": 0.98,
+  "rmse_m": 0.021
+ },
+ "recall": 1.0,
+ "precision": 1.0,
+ "partial": [],
+ "names_correct": "1 of 1",
+ "head_nouns_correct": "1 of 1",
+ "wrong_kind_names": [],
+ "mean_centre_error_m": 0.088,
+ "mean_bottom_error_m": 0.038,
+ "mean_height_error_m": 0.099,
+ "mean_overlap": 0.685,
+ "mean_distance_error_m": 0.009,
+ "false_alarms": [],
+ "unverifiable_reported": [],
+ "unverifiable_listed": [
+  "u1 lists the plastic crate as seen once"
+ ],
+ "changes": [
+  {
+   "truth": "armchair",
+   "type": "moved",
+   "found": "c1",
+   "name": "armchair",
+   "name_ok": true,
+   "head_noun_ok": true,
+   "shape_position_error_m": 0.08,
+   "before": {
+    "centre_error_m": 0.087,
+    "bottom_error_m": 0.046,
+    "height_error_m": -0.11,
+    "overlap": 0.68
+   },
+   "after": {
+    "centre_error_m": 0.09,
+    "bottom_error_m": 0.03,
+    "height_error_m": -0.087,
+    "overlap": 0.69
+   },
+   "true_distance_m": 1.031,
+   "reported_distance_m": 1.04,
+   "distance_error_m": 0.009,
+   "true_turn_deg": -45
+  }
+ ],
+ "unobservable": [],
+ "seen_once_on_unchanged": [],
+ "seen_once_on_nothing": [],
+ "phantom_furniture": [],
+ "doubted_real_changes": []
+}
