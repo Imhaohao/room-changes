@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="260" viewBox="0 0 900 260">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#5d5e61"/></marker></defs>
+<rect width="900" height="260" fill="#f6f5f1"/>
+<rect x="32" y="40" width="176" height="78" rx="10" fill="#ffffff"/>
+<text x="120" y="74" font-family="Avenir Next, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif" font-size="17" font-weight="600" fill="#1b1c1e" text-anchor="middle">Scan the room</text>
+<text x="120" y="98" font-family="Avenir Next, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#5d5e61" text-anchor="middle">iPhone LiDAR walk</text>
+<line x1="212" y1="79" x2="236" y2="79" stroke="#5d5e61" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="242" y="40" width="176" height="78" rx="10" fill="#ffffff"/>
+<text x="330" y="74" font-family="Avenir Next, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif" font-size="17" font-weight="600" fill="#1b1c1e" text-anchor="middle">Check the rules</text>
+<text x="330" y="98" font-family="Avenir Next, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#5d5e61" text-anchor="middle">Measured, cited</text>
+<line x1="422" y1="79" x2="446" y2="79" stroke="#5d5e61" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="452" y="40" width="176" height="78" rx="10" fill="#ffffff"/>
+<text x="540" y="74" font-family="Avenir Next, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif" font-size="17" font-weight="600" fill="#1b1c1e" text-anchor="middle">Propose a move</text>
+<text x="540" y="98" font-family="Avenir Next, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#5d5e61" text-anchor="middle">Re-checked in software</text>
+<line x1="632" y1="79" x2="656" y2="79" stroke="#5d5e61" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="662" y="40" width="176" height="78" rx="10" fill="#ffffff"/>
+<text x="750" y="74" font-family="Avenir Next, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif" font-size="17" font-weight="600" fill="#1b1c1e" text-anchor="middle">Owner moves it</text>
+<text x="750" y="98" font-family="Avenir Next, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#5d5e61" text-anchor="middle">In the real room</text>
+<path d="M750 122 L750 200 L560 200" fill="none" stroke="#c8372d" stroke-width="2.5" stroke-dasharray="7 6" marker-end="url(#arrow)"/>
+<rect x="310" y="166" width="246" height="70" rx="10" fill="#2f5e9e"/>
+<text x="433" y="196" font-family="Avenir Next, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif" font-size="17" font-weight="600" fill="#ffffff" text-anchor="middle">What changed in the room?</text>
+<text x="433" y="219" font-family="Avenir Next, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#e6edf7" text-anchor="middle">Two videos, one answer</text>
+<path d="M310 200 L120 200 L120 122" fill="none" stroke="#5d5e61" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="655" y="228" font-family="Avenir Next, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#c8372d" text-anchor="middle">Did it really move?</text>
+<text x="215" y="228" font-family="Avenir Next, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#5d5e61" text-anchor="middle">Re-check the rules</text>
+</svg>
